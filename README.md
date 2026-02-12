@@ -1,15 +1,16 @@
-Gra Memory (.NET MAUI)
-Projekt gry logicznej typu Memory zrealizowany w języku C# przy użyciu frameworka .NET MAUI. Aplikacja polega na odnajdywaniu par identycznych kart na planszy.
+Memory Game (.NET MAUI)
 
-Opis funkcjonalności
-- Dynamiczny rozmiar planszy: Użytkownik definiuje rozmiar siatki (np. 4x4) przed rozpoczęciem rozgrywki.
-- Mechanika gry: Losowe tasowanie kart przy każdym uruchomieniu, obsługa odkrywania kart i weryfikacja par.
-- System punktacji: Zliczanie czasu gry oraz liczby wykonanych ruchów.
-- Zapisywanie wyników: Najlepszy wynik dla danego rozmiaru planszy jest trwale zapisywany w pamięci urządzenia.
-- Interfejs: Responsywny układ kart oparty na kontrolce CollectionView.
+A logic puzzle game built with C# and .NET MAUI. The application consists of finding matching pairs of cards on a grid.
 
-Technologie
-- Język: C#
-- Platforma: .NET 8.0 (MAUI)
+Features
+- Dynamic board size: Users can define the grid size before starting.
+- Game mechanics: Random shuffling, card flip handling and pair verification.
+- Scoring system: Time tracking and move counter.
+- Data persistence: High scores are saved to device memory.
+- User interface: Responsive layout based on CollectionView.
+
+Technologies
+- Language: C#
+- Platform: .NET 8.0 (MAUI)
 - UI: XAML
-- Architektura: Wykorzystanie mechanizmów Data Binding, ObservableCollection oraz interfejsu INotifyPropertyChanged do aktualizacji widoku
+- Architecture: Data Binding, ObservableCollection and INotifyPropertyChanged.
