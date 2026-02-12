@@ -1,0 +1,47 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gra_Memory.GamePage"
+             Title="Rozgrywka">
+
+    <Grid RowDefinitions="Auto, Auto, *" Padding="10">
+
+        <Button Grid.Row="0" 
+                Text="POWRÓT" 
+                Clicked="OnBackClicked" 
+                BackgroundColor="Gray" 
+                Margin="0,0,0,10"/>
+
+        <HorizontalStackLayout Grid.Row="1" Spacing="20" HorizontalOptions="Center" Margin="0,0,0,10">
+            <Label Text="{Binding TimerText}" FontSize="18" FontAttributes="Bold" TextColor="#512BD4"/>
+            <Label Text="{Binding MovesText}" FontSize="18" FontAttributes="Bold" TextColor="#512BD4"/>
+        </HorizontalStackLayout>
+
+        <CollectionView Grid.Row="2" 
+                        x:Name="CardsCollection">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" 
+                                 Span="{Binding GridSpan}" 
+                                 VerticalItemSpacing="5" 
+                                 HorizontalItemSpacing="5" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="0" CornerRadius="5" HeightRequest="85" BorderColor="Black">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCardTapped" CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                        <Frame.Triggers>
+                            <DataTrigger TargetType="Frame" Binding="{Binding IsMatched}" Value="True">
+                                <Setter Property="BackgroundColor" Value="LightGreen" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Frame" Binding="{Binding IsMatched}" Value="False">
+                                <Setter Property="BackgroundColor" Value="White" />
+                            </DataTrigger>
+                        </Frame.Triggers>
+                        <Label Text="{Binding DisplayContent}" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
